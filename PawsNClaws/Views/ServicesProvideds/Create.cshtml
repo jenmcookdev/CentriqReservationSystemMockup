@@ -1,0 +1,34 @@
+﻿@model PawsNClaws.DATA.EF.ServicesProvided
+
+@{
+    ViewBag.Title = "Create New Service";
+}
+
+
+<div id="spCreateContainer">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <h2 class="listHeader">@ViewBag.Title</h2>
+        <h4 class="listSubheader">Use field below to enter new service</h4>
+        <div id="spCreateContent">
+            @Html.EditorFor(model => model.ServicesProvided1, new { htmlAttributes = new { @class = "form-control", @style = "resize:none" } })
+            @Html.ValidationMessageFor(model => model.ServicesProvided1, "", new { @class = "text-danger" })
+<div class="clearfix"></div>
+            <div class="viewFooters">
+                <div class="col-md-offset-2 col-md-7">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+                <div class="col-md-3">
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-danger" })
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

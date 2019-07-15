@@ -1,0 +1,38 @@
+﻿@model PawsNClaws.DATA.EF.Reservation
+
+@{
+    ViewBag.Title = "Edit Reservation Notes For " + Model.OwnerAsset.AssetName;
+}
+
+@using (Html.BeginForm())
+{
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+@Html.HiddenFor(model => model.ReservationID)
+@Html.HiddenFor(model => model.LocationID)
+@Html.HiddenFor(model => model.ReservationDate)
+@Html.HiddenFor(model => model.OwnerAssetID)
+@Html.HiddenFor(model => model.ServicesProvidedID)
+
+<div id="resvEditNotesContainer">
+    <div id="resvEditNotesContent">
+        <h2 class="listHeader">@ViewBag.Title</h2>
+        <p id="resvEditNotesField">
+            @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label col-md-2 pull-left" })
+            @Html.EditorFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control", @style = "resize:none" } })
+            @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+        </p>
+        <div class="clearfix"></div>
+        <div class="viewFooters">
+            <div class="col-md-7">
+                <input type="submit" value="Update" class="btn btn-primary"/>
+            </div>
+            <div class="col-md-3">
+                @Html.ActionLink("Go Back", "Index", null, new { @class = "btn btn-danger" })
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+}

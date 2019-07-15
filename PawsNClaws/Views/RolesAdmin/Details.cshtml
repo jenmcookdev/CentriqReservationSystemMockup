@@ -1,0 +1,36 @@
+﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+
+@{
+    ViewBag.Title = "Details for the Role of:";
+}
+
+<div id="raDetailsContainer">
+        <h2 class="listHeader">@ViewBag.Title</h2>
+    <h3 class="listSubheader">@Html.DisplayFor(model => model.Name)</h3>
+    <div class="clearfix"></div>
+
+    <h4>List of users in this role</h4>
+    @if (ViewBag.UserCount == 0)
+    {
+        <hr />
+        <p>No users found in this role.</p>
+    }
+
+    <table class="table">
+
+        @foreach (var item in ViewBag.Users)
+        {
+            <tr>
+                <td>
+                    @item.UserName
+                </td>
+            </tr>
+        }
+    </table>
+    <p>
+        @Html.ActionLink("Update", "Edit", null, new { @class = "btn btn-primary", @id = Model.Id }) 
+        @Html.ActionLink("Return", "Index", null, new { @class = "btn btn-danger" })
+    </p>
+</div>
+
+

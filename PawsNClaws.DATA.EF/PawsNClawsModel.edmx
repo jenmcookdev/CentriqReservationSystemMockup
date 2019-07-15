@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PawsNClawsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="State" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="ZipCode" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="PhoneNumber" Type="char" MaxLength="11" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ReservationLimit" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OwnerAssets">
+          <Key>
+            <PropertyRef Name="OwnerAssetID" />
+          </Key>
+          <Property Name="OwnerAssetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AssetName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OwnerID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="AssetPhoto" Type="varchar" MaxLength="50" />
+          <Property Name="SpecialNotes" Type="varchar" MaxLength="300" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="DateAdded" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reservations">
+          <Key>
+            <PropertyRef Name="ReservationID" />
+          </Key>
+          <Property Name="ReservationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationID" Type="int" Nullable="false" />
+          <Property Name="ReservationDate" Type="datetime" Nullable="false" />
+          <Property Name="OwnerAssetID" Type="int" Nullable="false" />
+          <Property Name="ServicesProvidedID" Type="int" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ServicesProvided">
+          <Key>
+            <PropertyRef Name="ServicesProvidedID" />
+          </Key>
+          <Property Name="ServicesProvidedID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServicesProvided" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserDetails">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_OwnerAssets_UserDetails">
+          <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="1" />
+          <End Role="OwnerAssets" Type="Self.OwnerAssets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDetails">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="OwnerAssets">
+              <PropertyRef Name="OwnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservations_Locations">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="1" />
+          <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservations_OwnerAssets">
+          <End Role="OwnerAssets" Type="Self.OwnerAssets" Multiplicity="1" />
+          <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OwnerAssets">
+              <PropertyRef Name="OwnerAssetID" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="OwnerAssetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservations_ServicesProvided">
+          <End Role="ServicesProvided" Type="Self.ServicesProvided" Multiplicity="1" />
+          <End Role="Reservations" Type="Self.Reservations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServicesProvided">
+              <PropertyRef Name="ServicesProvidedID" />
+            </Principal>
+            <Dependent Role="Reservations">
+              <PropertyRef Name="ServicesProvidedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PawsNClawsModelStoreContainer">
+          <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OwnerAssets" EntityType="Self.OwnerAssets" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reservations" EntityType="Self.Reservations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServicesProvided" EntityType="Self.ServicesProvided" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserDetails" EntityType="Self.UserDetails" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_OwnerAssets_UserDetails" Association="Self.FK_OwnerAssets_UserDetails">
+            <End Role="UserDetails" EntitySet="UserDetails" />
+            <End Role="OwnerAssets" EntitySet="OwnerAssets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservations_Locations" Association="Self.FK_Reservations_Locations">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservations_OwnerAssets" Association="Self.FK_Reservations_OwnerAssets">
+            <End Role="OwnerAssets" EntitySet="OwnerAssets" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservations_ServicesProvided" Association="Self.FK_Reservations_ServicesProvided">
+            <End Role="ServicesProvided" EntitySet="ServicesProvided" />
+            <End Role="Reservations" EntitySet="Reservations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PawsNClawsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PawsNClawsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Locations" EntityType="PawsNClawsModel.Location" />
+          <EntitySet Name="ServicesProvideds" EntityType="PawsNClawsModel.ServicesProvided" />
+          <EntitySet Name="Reservations" EntityType="PawsNClawsModel.Reservation" />
+          <AssociationSet Name="FK_Reservations_Locations" Association="PawsNClawsModel.FK_Reservations_Locations">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Reservation" EntitySet="Reservations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservations_ServicesProvided" Association="PawsNClawsModel.FK_Reservations_ServicesProvided">
+            <End Role="ServicesProvided" EntitySet="ServicesProvideds" />
+            <End Role="Reservation" EntitySet="Reservations" />
+          </AssociationSet>
+          <EntitySet Name="OwnerAssets" EntityType="PawsNClawsModel.OwnerAsset" />
+          <EntitySet Name="UserDetails" EntityType="PawsNClawsModel.UserDetail" />
+          <AssociationSet Name="FK_OwnerAssets_UserDetails" Association="PawsNClawsModel.FK_OwnerAssets_UserDetails">
+            <End Role="UserDetail" EntitySet="UserDetails" />
+            <End Role="OwnerAsset" EntitySet="OwnerAssets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reservations_OwnerAssets" Association="PawsNClawsModel.FK_Reservations_OwnerAssets">
+            <End Role="OwnerAsset" EntitySet="OwnerAssets" />
+            <End Role="Reservation" EntitySet="Reservations" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="11" FixedLength="true" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReservationLimit" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Reservations" Relationship="PawsNClawsModel.FK_Reservations_Locations" FromRole="Location" ToRole="Reservation" />
+        </EntityType>
+        <EntityType Name="ServicesProvided">
+          <Key>
+            <PropertyRef Name="ServicesProvidedID" />
+          </Key>
+          <Property Name="ServicesProvidedID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServicesProvided1" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reservations" Relationship="PawsNClawsModel.FK_Reservations_ServicesProvided" FromRole="ServicesProvided" ToRole="Reservation" />
+        </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="ReservationID" />
+          </Key>
+          <Property Name="ReservationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationID" Type="Int32" Nullable="false" />
+          <Property Name="ReservationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="OwnerAssetID" Type="Int32" Nullable="false" />
+          <Property Name="ServicesProvidedID" Type="Int32" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Location" Relationship="PawsNClawsModel.FK_Reservations_Locations" FromRole="Reservation" ToRole="Location" />
+          <NavigationProperty Name="ServicesProvided" Relationship="PawsNClawsModel.FK_Reservations_ServicesProvided" FromRole="Reservation" ToRole="ServicesProvided" />
+          <NavigationProperty Name="OwnerAsset" Relationship="PawsNClawsModel.FK_Reservations_OwnerAssets" FromRole="Reservation" ToRole="OwnerAsset" />
+        </EntityType>
+        <Association Name="FK_Reservations_Locations">
+          <End Type="PawsNClawsModel.Location" Role="Location" Multiplicity="1" />
+          <End Type="PawsNClawsModel.Reservation" Role="Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationID" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="LocationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservations_ServicesProvided">
+          <End Type="PawsNClawsModel.ServicesProvided" Role="ServicesProvided" Multiplicity="1" />
+          <End Type="PawsNClawsModel.Reservation" Role="Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServicesProvided">
+              <PropertyRef Name="ServicesProvidedID" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="ServicesProvidedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OwnerAsset">
+          <Key>
+            <PropertyRef Name="OwnerAssetID" />
+          </Key>
+          <Property Name="OwnerAssetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssetName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="AssetPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SpecialNotes" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="DateAdded" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="UserDetail" Relationship="PawsNClawsModel.FK_OwnerAssets_UserDetails" FromRole="OwnerAsset" ToRole="UserDetail" />
+          <NavigationProperty Name="Reservations" Relationship="PawsNClawsModel.FK_Reservations_OwnerAssets" FromRole="OwnerAsset" ToRole="Reservation" />
+        </EntityType>
+        <EntityType Name="UserDetail">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="OwnerAssets" Relationship="PawsNClawsModel.FK_OwnerAssets_UserDetails" FromRole="UserDetail" ToRole="OwnerAsset" />
+        </EntityType>
+        <Association Name="FK_OwnerAssets_UserDetails">
+          <End Type="PawsNClawsModel.UserDetail" Role="UserDetail" Multiplicity="1" />
+          <End Type="PawsNClawsModel.OwnerAsset" Role="OwnerAsset" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDetail">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="OwnerAsset">
+              <PropertyRef Name="OwnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reservations_OwnerAssets">
+          <End Type="PawsNClawsModel.OwnerAsset" Role="OwnerAsset" Multiplicity="1" />
+          <End Type="PawsNClawsModel.Reservation" Role="Reservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OwnerAsset">
+              <PropertyRef Name="OwnerAssetID" />
+            </Principal>
+            <Dependent Role="Reservation">
+              <PropertyRef Name="OwnerAssetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PawsNClawsModelStoreContainer" CdmEntityContainer="PawsNClawsEntities">
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="PawsNClawsModel.Location">
+              <MappingFragment StoreEntitySet="Locations">
+                <ScalarProperty Name="ReservationLimit" ColumnName="ReservationLimit" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServicesProvideds">
+            <EntityTypeMapping TypeName="PawsNClawsModel.ServicesProvided">
+              <MappingFragment StoreEntitySet="ServicesProvided">
+                <ScalarProperty Name="ServicesProvided1" ColumnName="ServicesProvided" />
+                <ScalarProperty Name="ServicesProvidedID" ColumnName="ServicesProvidedID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservations">
+            <EntityTypeMapping TypeName="PawsNClawsModel.Reservation">
+              <MappingFragment StoreEntitySet="Reservations">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="ServicesProvidedID" ColumnName="ServicesProvidedID" />
+                <ScalarProperty Name="OwnerAssetID" ColumnName="OwnerAssetID" />
+                <ScalarProperty Name="ReservationDate" ColumnName="ReservationDate" />
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OwnerAssets">
+            <EntityTypeMapping TypeName="PawsNClawsModel.OwnerAsset">
+              <MappingFragment StoreEntitySet="OwnerAssets">
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SpecialNotes" ColumnName="SpecialNotes" />
+                <ScalarProperty Name="AssetPhoto" ColumnName="AssetPhoto" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+                <ScalarProperty Name="AssetName" ColumnName="AssetName" />
+                <ScalarProperty Name="OwnerAssetID" ColumnName="OwnerAssetID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserDetails">
+            <EntityTypeMapping TypeName="PawsNClawsModel.UserDetail">
+              <MappingFragment StoreEntitySet="UserDetails">
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

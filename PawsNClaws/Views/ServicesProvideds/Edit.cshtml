@@ -1,0 +1,34 @@
+﻿@model PawsNClaws.DATA.EF.ServicesProvided
+
+@{
+    ViewBag.Title = "Update Service Name: " + Model.ServicesProvided1 + "?";
+}
+
+<div id="spEditContainer">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ServicesProvidedID)
+
+        <h2 class="listHeader">@ViewBag.Title</h2>
+        <div id="spEditContent">
+            @Html.EditorFor(model => model.ServicesProvided1, new { htmlAttributes = new { @class = "form-control", @style = "resize:none" } })
+            @Html.ValidationMessageFor(model => model.ServicesProvided1, "", new { @class = "text-danger" })
+
+            <div class="clearfix"></div>
+              <div class="viewFooters">
+                <div class="col-md-offset-2 col-md-7">
+                    <input type="submit" value="Update" class="btn btn-primary" id="spEditUpdateBtn"/>
+                </div>
+                <div class="col-md-3">
+                    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-danger",@id="spEditCancelBtn" })
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

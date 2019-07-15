@@ -1,0 +1,23 @@
+﻿@model PawsNClaws.DATA.EF.UserDetail
+
+@{
+    ViewBag.Title = "Delete " + Model.FullName;
+}
+
+<div class="deleteOutterDiv">
+    <div class="deleteInnerDiv">
+        <h2>@ViewBag.Title</h2>
+
+        <h3>Are you sure you want to delete: <span class="myWarning">@Model.FullName</span>?</h3>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color" style="display:inline-block;">
+                <input type="submit" value="Yes" class="btn btn-primary" /> |
+                @Html.ActionLink("No", "Index", null, new { @class = "btn btn-danger" })
+            </div>
+        }
+        </div>
+    </div>

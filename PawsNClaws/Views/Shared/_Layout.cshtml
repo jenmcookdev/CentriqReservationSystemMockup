@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paws n' Claws is a pet services business with 4 locations around the Greater Kansas City Metro.
+          We provide pet day-care, overnight boarding, in house pet-sitting and dog walking services.  We treat your pet as if it was our own.">
+    <meta name="JenMCook" content="base template by Sergey Pozhilov (GetTemplate.com)">
+    <meta name="keywords" content="Pet Sitting, Pet Boarding, Pet Services,Pet Taxi,Dog Walking, Pet Day-Care, Animal services, pet services, dog, cat, bird, duck, rabbit, small mammals.">
+
+    <title>Paws n' Claws Boarding</title>
+
+    <!-- Favicon -->
+    @*
+        <link rel="shortcut icon" href="assets/images/gt_favicon.png">*@
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Allerta|Copse|Palanquin+Dark&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Domine|Oxygen&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css?family=Nobile&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+
+    <link rel="stylesheet" href="~/Content/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/assets/css/font-awesome.min.css">
+    <!--for Datepicker and Accordion-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!--Owl Carousel-->
+    <link href="~/Content/assets/owlcarousel/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/owlcarousel/owl.theme.default.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for our template -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="~/Content/assets/css/bootstrap-theme.css" media="screen">
+    <link rel="stylesheet" href="~/Content/assets/css/main.css">
+
+    <!-- Custom CSS -->
+    <link href="~/Content/assets/css/Custom.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="home">
+
+    <!-- #region NAVIGATION MENU -->
+    <!-- Fixed navbar =========================-->
+    <div class="navbar navbar-inverse navbar-fixed-top headroom">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- Button for smallest screens =========================-->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index","Home")"><img src="~/Content/assets/images/logo/doglogo.png" height="68" width="409" alt="Orange dog outline logo"></a>
+            </div>
+                
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="@Url.Action("Index","Home")">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#"
+                           data-toggle="dropdown">Our Company<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("About","Home")">About Us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("FAQ","Home")">FAQ</a></li>
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("BusinessLocations","Home")">Locations</a></li>
+                            <li class="nav-item active"><a class="nav-link" href="@Url.Action("Services","Home")">Services</a></li>
+                        </ul>
+                    </li>
+                    @if (User.IsInRole("User"))
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#"
+                               data-toggle="dropdown">Your Account<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    @Html.ActionLink("Account Profile", "Index", "OwnerAssets", null,
+                                new { @class = "nav-link" })
+                                </li>
+                                <li id="nav-item">
+                                    @Html.ActionLink("Make Reservation", "Create", "Reservations", null,
+                                new { @class = "nav-link" })
+                                </li>
+                                <li id="nav-item">
+                                    @Html.ActionLink("Reservation Bookings", "Index", "Reservations", null,
+                                new { @class = "nav-link" })
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Contact","Home")">Contact</a>
+                    </li>
+
+                    @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+                    {
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#"
+                               data-toggle="dropdown">Authorized Employees<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    @Html.ActionLink("Reservation Bookings", "Index", "Reservations",
+                                null, new { @class = "nav-link" })
+                                </li>
+                                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                                {
+                                    <li id="nav-item">
+                                        @Html.ActionLink("All Registered Pets", "Index", "OwnerAssets", null,
+                                new { @class = "nav-link" })
+                                    </li>
+                                }
+                                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                                {
+                                    <li id="nav-item">
+                                        @Html.ActionLink("Roles", "Index", "RolesAdmin", null,
+                                new { @class = "nav-link" })
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                    @Html.Partial("_LoginPartial")
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>    <!-- /.navbar -->
+    <!-- #endregion -->
+    <!-- Header =========================-->
+    <header id="head">
+        <div class="container">
+            <div class="row">
+                @*<h1 class="lead">AWESOME, CUSTOMIZABLE, FREE</h1>
+                    <p class="tagline">PROGRESSUS: free business bootstrap template by <a href="http://www.gettemplate.com/?utm_source=progressus&amp;utm_medium=template&amp;utm_campaign=progressus">GetTemplate</a></p>*@
+                @*<p><a class="btn btn-default btn-lg" role="button">MORE INFO</a> <a class="btn btn-action btn-lg" role="button">DOWNLOAD NOW</a></p>*@
+            </div>
+        </div>
+    </header>
+    <!-- /Header =========================-->
+    <div class="mainContent">
+        @RenderBody()
+    </div>
+    <!--Footer =========================-->
+    <footer id="footer" class="top-space">
+
+        <div class="footer1">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3 widget" id="footerContact">
+                        <h2 class="widget-title">Contact</h2>
+                        <div class="widget-body">
+                            <p>
+                                (816) 867-5309<br>
+                                <a href="mailto:#">pawsnclaws@pandcpetservice.net</a><br>
+                                <br>
+                                9209 N. Cranbrook Pleasant Ave, Kansas City, MO 64127
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 widget" id="footerSocialIcons">
+                        <h2 class="widget-title">Follow Us!</h2>
+                        <div class="widget-body">
+                            <p class="follow-me-icons">
+                                <a href="https://www.linkedin.com/in/jenmcook/"><i class="fa fa-linkedin-square"></i></a>
+                                <a href="#"><i class="fa fa-facebook-square"></i></a>
+                                <a href="https://twitter.com/JKCJen"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 widget" id="footerLogo">
+                        <h3 class="widget-title"></h3>
+                        <div class="widget-body">
+                            <p><img src="~/Content/assets/images/logo/doglogo.png" /></p>
+                        </div>
+                    </div>
+
+                </div> <!-- /row of widgets =========================-->
+            </div>
+        </div>
+
+        <div class="footer2">
+            <div class="container">
+                <div class="row">
+                    <!--FOOTER NAV layout-->
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="simplenav">
+                                <a href="#"></a>
+                                <a href="#"></a>
+                                This app has been live since @System.Web.HttpContext.Current.Application["launchTimestamp"]
+                                <a href="#"></a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="text-right">
+                                Copyright &copy; @DateTime.Now.Year JenMCook | For Educational Use Only | Base template by <a href="http://gettemplate.com/" rel="designer">gettemplate</a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div> <!-- /row of widgets =========================-->
+            </div>
+        </div>
+
+    </footer>
+    <!--End Footer =========================-->
+    <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/assets/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/Content/assets/js/headroom.min.js"></script>
+    <script src="~/Content/assets/js/jQuery.headroom.min.js"></script>
+    <script src="~/Content/assets/js/template.js"></script>
+    @RenderSection("scripts", required: false)
+
+    <script>
+        $(function () {
+            $('nav ul li').each(function () {
+                if ($(this.find('a').attr('href') == window.location.pathname)) {
+                    $(this).addClass('active');
+                }
+            });
+        });
+
+        // Activate Carousel
+        $("#myCarousel").carousel();
+
+        // Enable Carousel Indicators
+        $(".item").click(function () {
+            $("#myCarousel").carousel(1);
+        });
+
+        // Enable Carousel Controls
+        $(".left").click(function () {
+            $("#myCarousel").carousel("prev");
+        });
+    </script>
+</body>
+</html>

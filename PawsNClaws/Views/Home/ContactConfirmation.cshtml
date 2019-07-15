@@ -1,0 +1,23 @@
+﻿@model PawsNClaws.Models.ContactViewModel
+
+@{
+    ViewBag.Title = "Contact Confirmation";
+}
+
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="contact-info">
+            <h2 class="title text-center">@ViewBag.Title</h2>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <!-- Response Message if email is sent successfully-->
+        <h2>
+            Thank you for contacting us, @Model.Name!!! We will get back to you
+            within twenty-four hours.
+        </h2>
+
+
+    </div>
+</div>

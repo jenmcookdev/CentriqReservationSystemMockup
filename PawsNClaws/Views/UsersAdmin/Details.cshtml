@@ -1,0 +1,53 @@
+﻿@model PawsNClaws.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "User Roles Detail";
+}
+
+
+<div class="usersContainer">
+    <div id="usersAdminDetailContent">
+        <h2 class="listHeader">@ViewBag.Title</h2>
+
+        <div>
+            <dl class="dl-horizontal" id="uaDetailBody">
+                <dt id="uaTitle">
+                    User Email:
+                </dt>
+                <dd id="uaEmailAddress">
+                    @Html.DisplayFor(model => model.UserName)
+                </dd>
+            </dl>
+        </div>
+        <h4 id="uaRolesH4">List of roles for this user:</h4>
+        @if (ViewBag.RoleNames.Count == 0)
+        {
+            <hr />
+            <p>No roles found for this user.</p>
+        }
+
+        <table class="table" id="uaDetailsTable">
+
+            @foreach (var item in ViewBag.RoleNames)
+            {
+                <tr>
+                    <td id="uaRoleTD">
+                        @item
+                    </td>
+                </tr>
+            }
+        </table>
+        <div class="clearfix"></div>
+        <div class="viewFooters">
+            <div class="col-md-7">
+                @Html.ActionLink("Update", "Edit", null, new { id = Model.Id, @class = "btn btn-primary" })
+            </div>
+            <div class="col-md-3">
+                @Html.ActionLink("Return", "Index", null, new { @class = "btn btn-danger" })
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+

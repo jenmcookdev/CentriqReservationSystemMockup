@@ -1,0 +1,26 @@
+﻿@model PawsNClaws.DATA.EF.ServicesProvided
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div class="viewsContainer">
+    <h2 class="listHeader">@ViewBag.Title</h2>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ServicesProvided1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServicesProvided1)
+        </dd>
+
+    </dl>
+    <div class="viewFooters">
+        <p>
+            @Html.ActionLink("Update", "Edit", new { id = Model.ServicesProvidedID }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Return", "Index", null, new { @class = "btn btn-danger" })
+        </p>
+    </div>
+</div>
+

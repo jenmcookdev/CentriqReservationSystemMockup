@@ -1,0 +1,73 @@
+﻿@model PawsNClaws.Models.ContactViewModel
+
+@{
+    ViewBag.Title = "Contact Us";
+}
+<div id="contactFormWrapper">
+    <div id="contactFormHeader">
+        <h2>@ViewBag.Title</h2>
+    </div>
+    <div id="contactFormBody">
+        <div id="contactFormGreeting">
+            <p>
+                We hope our FAQ was able to answer your questions, if not contact us. We look forward to hear from you!
+            </p>
+        </div>
+        @using (Html.BeginForm())
+            {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <p>
+                @Html.TextBoxFor(model => model.Name, null, new { @placeholder = "Name", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </p>
+            <p>
+                @Html.TextBoxFor(model => model.Email, null, new { @placeholder = "Email", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </p>
+            <p>
+                @Html.TextBoxFor(model => model.Subject, null, new { @placeholder = "Subject", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
+            </p>
+            <p>
+                @Html.TextBoxFor(model => model.Message, null, new { @placeholder = "Message", @class = "form-control", @style = "resize:none", @id = "contactMessage" })
+                @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+            </p>
+            <div class="clearfix"></div>
+            <div class="col-md-12" id="contactBtnContainer">
+                <div class="col-md-offset-2 col-md-7">
+                    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-danger", id = "contactCancel" })
+                </div>
+                <div class="col-md-3">
+                    <input type="submit" value="Send" class="btn btn-primary pull-left" id="contactSend" />
+                </div>
+            </div>
+                <div class="clearfix"></div>
+        }
+    </div>
+</div>
+<div id="contactSidebarWrapper">
+    <!-- Sidebar -->
+    <aside class="col-sm-3 sidebar sidebar-right">
+        <div class="widget" id="contactWidget">
+            <h3 id="contactWidgeth3">Paws N' Claws</h3>
+            <address>
+                9209 N. Cranbrook Pleasant Ave<br />
+                Kansas City, MO 64127
+            </address>
+            <h5>(816) 867-5309:</h5>
+            <address>
+                pawsnclaws@pandcpetservice.net
+            </address>
+            <address>
+                We have more locations available: <br />
+                <a class="nav-link" href="@Url.Action("BusinessLocations","Home")">Our Locations</a>
+            </address>
+            <address>
+                <iframe src="https://www.google.com/maps/d/embed?mid=1jkcXQEjJXJJp1SB8mg9NSRpbfu1Hf5gO" width="330" height="275"></iframe>
+            </address>
+        </div>
+    </aside>
+    <div class="clearfix"></div>
+    <!-- /Sidebar -->
+</div>

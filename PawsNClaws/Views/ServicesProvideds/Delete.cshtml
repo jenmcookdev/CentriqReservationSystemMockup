@@ -1,0 +1,20 @@
+﻿@model PawsNClaws.DATA.EF.ServicesProvided
+
+@{
+    ViewBag.Title = "Delete Service";
+}
+
+<div class="deleteOutterDiv">
+    <h2>@ViewBag.Title</h2>
+
+    <h3>Are you sure you want to delete the service <span class="myWarning">@Model.ServicesProvided1</span>?</h3>
+    <br/>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-actions no-color" style="display:inline-block;">
+                <input type="submit" value="Yes" class="btn btn-primary" /> |
+                @Html.ActionLink("No", "Index", null, new { @class = "btn btn-danger" })
+            </div>
+        }
+</div>

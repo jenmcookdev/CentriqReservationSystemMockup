@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f30aae9fdd5e47e082982e84a3635260" Name="Diagram1">
+        <EntityTypeShape EntityType="PawsNClawsModel.Location" Width="1.5" PointX="8.625" PointY="0.75" />
+        <EntityTypeShape EntityType="PawsNClawsModel.ServicesProvided" Width="1.5" PointX="1.375" PointY="0.875" />
+        <EntityTypeShape EntityType="PawsNClawsModel.Reservation" Width="1.5" PointX="4.125" PointY="0.625" />
+        <AssociationConnector Association="PawsNClawsModel.FK_Reservations_Locations" />
+        <AssociationConnector Association="PawsNClawsModel.FK_Reservations_ServicesProvided" />
+        <EntityTypeShape EntityType="PawsNClawsModel.OwnerAsset" Width="1.5" PointX="6.375" PointY="3.125" />
+        <EntityTypeShape EntityType="PawsNClawsModel.UserDetail" Width="1.5" PointX="4.125" PointY="3.625" />
+        <AssociationConnector Association="PawsNClawsModel.FK_OwnerAssets_UserDetails" />
+        <AssociationConnector Association="PawsNClawsModel.FK_Reservations_OwnerAssets" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

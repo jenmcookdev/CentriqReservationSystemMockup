@@ -1,0 +1,26 @@
+﻿@model PawsNClaws.DATA.EF.Reservation
+
+@{
+    ViewBag.Title = "Delete Reservation";
+}
+
+<div class="deleteOutterDiv">
+    <div class="deleteInnerDiv">
+        <h2>@ViewBag.Title</h2>
+
+        <h3>Are you sure you want to delete the reservation for?</h3>
+        <h3><span class="myWarning">@Model.OwnerAsset.AssetName</span> owned by <span class="myWarning">@Model.OwnerAsset.UserDetail.FullName</span> on @Model.ReservationDate?</h3>
+        <br/>
+        <div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color" style="display:inline-block;">
+                    <input type="submit" value="Yes" class="btn btn-primary" /> |
+                    @Html.ActionLink("No", "Index", null, new { @class = "btn btn-danger" })
+                </div>
+            }
+        </div>
+    </div>
+</div>

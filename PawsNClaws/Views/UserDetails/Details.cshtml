@@ -1,0 +1,30 @@
+﻿@model PawsNClaws.DATA.EF.UserDetail
+
+@{
+    ViewBag.Title = "User Details";
+}
+
+<div id="udDetailContainer">
+    <h2 class="listHeader">@ViewBag.Title</h2>
+
+    <div id="udDetailBody">
+        <p>
+            @Html.DisplayNameFor(model => model.FirstName):
+            @Html.DisplayFor(model => model.FirstName)
+        </p>
+        <p>
+            @Html.DisplayNameFor(model => model.LastName):
+            @Html.DisplayFor(model => model.LastName)
+        </p>
+    </div>
+    <div class="clearfix"></div>
+    <div class="viewFooters">
+        <div class="col-md-7">
+            @Html.ActionLink("Return", "Index", null, new { @class = "btn btn-danger" })
+        </div>
+        <div class="col-md-3">
+            @Html.ActionLink("Update User", "Edit", new { id = Model.UserID }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>

@@ -1,0 +1,48 @@
+﻿@model PawsNClaws.DATA.EF.OwnerAsset
+
+@{
+    ViewBag.Title = Model.AssetName + "'s" + " Details";
+}
+
+<div class="oaContainer">
+    <div id="oaDetailBody">
+            <h2 class="listHeader">@ViewBag.Title</h2>
+        <div id="oaLeft">
+            <p>
+                <img class="imagesInView" src="~/Content/assets/images/UserImages/@Model.AssetPhoto"
+                     alt="@Model.AssetName" height="250" width="250" />
+            </p>
+        </div>
+        <div class="clearfix"></div>
+        <div id="oaRight">
+            <p>
+                <label>@Html.DisplayNameFor(model => model.SpecialNotes):</label>
+            </p>
+            <p>
+                <span id="oaRightNotes">
+                    @Html.DisplayFor(model => model.SpecialNotes)
+                </span>
+            </p>
+            <div id="oaActiveandDate">
+                <p>
+                    @Html.DisplayNameFor(model => model.IsActive)
+                    @Html.DisplayFor(model => model.IsActive)
+                </p>
+                <p>
+                    @Html.DisplayNameFor(model => model.DateAdded):
+                    @Html.DisplayFor(model => model.DateAdded)
+                </p>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="viewFooters">
+            <div class="col-md-7">
+                @Html.ActionLink("Return", "Index", null, new { @class = "btn btn-danger" })
+            </div>
+            <div class="col-md-3">
+                @Html.ActionLink("Update", "Edit", new { id = Model.OwnerAssetID }, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

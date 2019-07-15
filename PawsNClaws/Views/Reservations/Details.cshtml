@@ -1,0 +1,59 @@
+﻿@model PawsNClaws.DATA.EF.Reservation
+
+@{
+    ViewBag.Title = "Reservation Details";
+}
+
+<div id="resvDetailsContainer">
+    <div id="resvDetailsContent">
+        <h2 class="listHeader">@ViewBag.Title</h2>
+        <h3 class="listSubheader" id="resvPetName">Pet Name: @Model.OwnerAsset.AssetName</h3>
+        <h3 class="headerThree">Owner: @Model.OwnerAsset.UserDetail.FullName</h3>
+            <p class="oaPetImage" id="petReservationPic">
+                <img class="imagesInView" src="~/Content/assets/images/UserImages/@Model.OwnerAsset.AssetPhoto" alt="@Model.OwnerAsset.AssetName" height="300" width="300" />
+            </p>
+        <div class="clearfix"></div>
+        <div id="resvDetailsRight">
+            <p class="viewLabel">
+                @Html.DisplayNameFor(model => model.ReservationDate)
+            </p>
+            <p class="viewLabelBody">
+                @Html.DisplayFor(model => model.ReservationDate)
+            </p>
+            <p class="viewLabel">
+                @Html.DisplayNameFor(model => model.Location.LocationName):
+            </p>
+            <p class="viewLabelBody">
+                @Html.DisplayFor(model => model.Location.LocationName)
+            </p>
+            <p class="viewLabel">
+                @Html.DisplayNameFor(model => model.ServicesProvided.ServicesProvided1):
+            </p>
+            <p class="viewLabelBody">
+                @Html.DisplayFor(model => model.ServicesProvided.ServicesProvided1)
+            </p>
+            <p class="viewLabel">
+                @Html.DisplayNameFor(model => model.Notes):
+            </p>
+            <p class="viewLabelBody">
+                @Html.DisplayFor(model => model.Notes)
+            </p>
+        </div>
+        <div class="clearfix"></div>
+        <div class="viewFooters">
+            @if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+            {
+                <div class="col-md-7">
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-danger" })
+                </div>
+                if (User.IsInRole("Admin"))
+                {
+                    <div class="col-md-3">
+                        @Html.ActionLink("Make Changes", "Edit", new { id = Model.ReservationID },new { @class = "btn btn-primary" })
+                    </div>
+                }
+            }
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PawsNClaws.DATA.EF.OwnerAsset>
+
+@{
+    ViewBag.Title = "Your Registered Pets";
+}
+
+<div id="oaIndexContainer">
+    <div id="oaIndexContent">
+        <h2 class="listHeader">@ViewBag.title</h2>
+
+        <p id="oaIndexCreate">
+            @Html.ActionLink("Add New Pet", "Create")
+        </p>
+        <table class="table" id="clientPetList">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AssetPhoto)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AssetName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SpecialNotes)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td class="oaPetImage">
+                            <img class="imagesInView" src="~/Content/assets/images/UserImages/@item.AssetPhoto" alt="@item.AssetName" height="75" width="75" />
+                        </td>
+                        <td>
+                            @Html.ActionLink(item.AssetName, "Details", new { id = item.OwnerAssetID })
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SpecialNotes)
+                        </td>
+                        @if (Request.IsAuthenticated)
+                {
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.OwnerAssetID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.OwnerAssetID })
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable({
+                "lengthChange": false
+            });
+        });
+    </script>
+}

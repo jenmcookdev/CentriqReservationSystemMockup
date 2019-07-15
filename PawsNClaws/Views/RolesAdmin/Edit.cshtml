@@ -1,0 +1,44 @@
+﻿@model PawsNClaws.Models.RoleViewModel
+
+@{
+    ViewBag.Title = "Edit Roles";
+}
+
+
+<div class="viewsContainer">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-horizontal">
+
+            <h2 class="listHeader">@ViewBag.Title</h2>
+
+            <div id="rolesAdminEditContent">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="viewFooters">
+                        <div class="col-md-offset-2 col-md-7">
+                            <input type="submit" value="Update" class="btn btn-primary" id="raEditUpdateBtn" />
+                        </div>
+                        <div class="col-md-3">
+                            @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-danger", @id="raEditCancelBtn"})
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

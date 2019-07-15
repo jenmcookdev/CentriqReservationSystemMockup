@@ -1,0 +1,21 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Something went wrong!";
+}
+
+<body id="errorPage">
+    <div class="resvErrorPageContainer" id="sorryContainer">
+        <div class="resvSorryContent" id="sorryContent">
+            <h1 class="listSubheader" id="sorry">@ViewBag.Title</h1>
+            <div>
+                <h4 class="listSubheader" id="sorryContact">
+                    <a href="~/Home/Contact">Contact Us</a>
+                    </h4>
+                    <h4 class="listSubheader" id="sorryHome">
+                        <a href="~/Home">Home page</a>
+                    </h4>
+            </div>
+        </div>
+    </div>
+</body>

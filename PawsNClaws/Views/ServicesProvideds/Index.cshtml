@@ -1,0 +1,36 @@
+﻿@model IEnumerable<PawsNClaws.DATA.EF.ServicesProvided>
+
+@{
+    ViewBag.Title = "Services Provided";
+}
+
+
+<div id="servicesIndexContainer">
+    <h2 class="listHeader">@ViewBag.Title</h2>
+    <div id="servicesIndexContent">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ServicesProvided1)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ServicesProvided1)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Create New", "Create") |
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ServicesProvidedID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ServicesProvidedID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ServicesProvidedID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

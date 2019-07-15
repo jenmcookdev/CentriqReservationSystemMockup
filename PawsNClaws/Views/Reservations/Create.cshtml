@@ -1,0 +1,73 @@
+﻿@model PawsNClaws.DATA.EF.Reservation
+
+@{
+    ViewBag.Title = "Make Reservation";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div id="resvCreateContainer">
+            <h2 class="listHeader">@ViewBag.Title</h2>
+        <div id="resvCreateContent">
+            <div id="resvCreateLeftnRight">
+                <div id="resvCreateLeft">
+                    <p>
+                        @Html.LabelFor(model => model.OwnerAssetID, "Pet Name", htmlAttributes: new { @class = "control-label push-left" })
+                        @Html.DropDownList("OwnerAssetID", null, htmlAttributes: new { @class = "form-control row" })
+                        @Html.ValidationMessageFor(model => model.OwnerAssetID, "", new { @class = "text-danger" })
+                    </p>
+                    <p>
+                        @Html.LabelFor(model => model.ServicesProvidedID, "Service Requested", htmlAttributes: new { @class = "control-label push-left" })
+                        @Html.DropDownList("ServicesProvidedID", null, htmlAttributes: new { @class = "form-control row" })
+                        @Html.ValidationMessageFor(model => model.ServicesProvidedID, "", new { @class = "text-danger" })
+                    </p>
+                </div>
+                <div id="resvCreateRight">
+                    <p>
+                        @Html.LabelFor(model => model.LocationID, "Location", htmlAttributes: new { @class = "control-label push-left" })
+                        @Html.DropDownList("LocationID", null, htmlAttributes: new { @class = "form-control row" })
+                        @Html.ValidationMessageFor(model => model.LocationID, "", new { @class = "text-danger" })
+                    </p>
+                    <p>
+                        @Html.LabelFor(model => model.ReservationDate, htmlAttributes: new { @class = "control-label push-left" })
+                        @Html.EditorFor(model => model.ReservationDate, new { htmlAttributes = new { @class = "form-control row" } })
+                        @Html.ValidationMessageFor(model => model.ReservationDate, "", new { @class = "text-danger" })
+                    </p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div id="resvCreateCstmrNotes">
+                <p>
+                    @Html.LabelFor(model => model.Notes, htmlAttributes: new { @class = "control-label push-left" })
+                    @Html.EditorFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control row", @style = "resize:none" } })
+                    @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+                </p>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="viewFooters">
+            <div class="col-md-7" id="rsvFooterLeft">
+                @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-danger" })
+            </div>
+            <div class="col-md-3" id="rsvFooterRight">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+}
+
+@section Scripts{
+    <script>
+        $(function () {
+            $("#ReservationDate").datepicker(
+                {
+                    changeMonth: true,
+                    changeYear: true
+                });
+        });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,1043 @@
+﻿/*Custom CSS for my own stylings*/
+/*Google Fonts
+'Allerta', sans-serif;  
+'Copse', serif;
+'Palanquin Dark', sans-serif;
+'Play', sans-serif;
+'Cabin Condensed', sans-serif;
+'Slabo 27px', serif;
+'Nobile', sans-serif;
+'Domine', serif;
+'Oxygen', sans-serif;
+*/
+
+/*********************Account/Login.cshtml page*/
+#loginRow
+{
+    margin-left:5em;
+}
+
+#loginform {
+    text-align: center;
+    width: 50%;
+    margin-left:5em;
+
+}
+
+#loginField {
+    width: 50%;
+}
+
+/*********************navbar-overlay*/
+.navbar-inverse {
+    padding-top: 10px;
+}
+
+/*********************Warning message mostly for Delete Views*/
+.myWarning {
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/*********************_Layout - main content*/
+.mainContent {
+    width: 95%;
+    margin: auto;
+    min-height: 590px;
+}
+
+/*********************Contact Form*/
+#contactFormWrapper {
+    text-align: center;
+    float: left;
+    width: 50%;
+    border: 2px solid #6f6d6f;
+    margin: 3em;
+    margin-left: 6em;
+    border-radius: 2em;
+    box-shadow: 1em 1em lightgray;
+}
+
+#contactFormHeader {
+    margin: 1em;
+    max-width: 95%;
+    text-align: center;
+    border-bottom: 3px solid rgb(255, 149, 21);
+    font-family: 'Play', sans-serif;
+}
+
+#contactFormBody {
+    padding: 2em;
+}
+
+#contactMessage {
+    height: 10em;
+}
+
+#contactFormGreeting {
+    margin-bottom: 2em;
+}
+
+#contactSideBarWrapper {
+    float: right;
+}
+
+#contactWidget {
+    margin-top: 1.15em;
+    text-align: center;
+    font-size: 1em;
+    float: left;
+    font-family: 'Play', sans-serif;
+}
+
+    #contactWidget h3 {
+        font-size: 3em;
+        border-bottom: 2px solid rgb(255, 149, 21);
+        width: 7em;
+        font-family: 'Cabin Condensed', sans-serif;
+    }
+
+iframe {
+    border: 1px solid black;
+}
+
+/*********************My default for Tables*/
+#formContainer {
+    width: 50em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+Table {
+    margin: auto;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    height: 10px;
+    background-color: #979df9;
+    color: white;
+}
+
+td {
+    height: 15px;
+    vertical-align: bottom;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(199, 211, 249, 0.79);
+}
+
+/*********************Checkboxes*/
+.checkbox {
+    display: inline;
+}
+
+/*********************Delete Views*/
+.deleteOutterDiv {
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+    margin-left: 140px;
+    margin-bottom: 1em;
+    width: 80%;
+}
+
+/*********************H2 header and Create (add new) and subHeader link on most views*/
+.listHeader {
+    margin: auto;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    text-align: center;
+    border-bottom: 2px solid rgb(255, 149, 21);
+}
+
+.listSubheader {
+    margin: auto;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    text-align: center;
+}
+
+.indexViewsCreateLink {
+    margin: auto;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    text-align: center;
+}
+
+/*********************Footers for most views*/
+.viewFooters {
+    margin-bottom: .5em;
+    margin-top: .5em;
+}
+
+/*********************OwnerAssets Index View*/
+#oaIndexCreate {
+    text-align: center;
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+
+#oaIndexContainer {
+    width: 75%;
+    text-align: center;
+    border: 2px solid black;
+    padding: .5em;
+    max-height: 90em;
+    margin: auto;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    box-shadow: .5em .5em #C26E26;
+    border-radius: 2em;
+}
+
+.oaPetImage {
+    text-align: center;
+}
+
+/*********************Owner Assets - Create View*/
+/*create, edit and details container*/
+.oaContainer {
+    width: 45%;
+    text-align: center;
+    border: 2px solid black;
+    padding: .5em;
+    max-height: 90em;
+    margin: auto;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    box-shadow: 1em 1em #C26E26;
+    border-radius: 3em;
+}
+
+#oaCreateContents {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#oaCreatePhoto {
+    text-align: left;
+    margin-bottom: .1em;
+}
+
+    #oaCreatePhoto label {
+        font-weight: 700;
+        text-align: left;
+    }
+
+/*********************OwnerAssets Details View*/
+#oaDetailBody {
+    width: 100%;
+}
+
+#oaDetailsContainer label {
+    font-weight: 700;
+    border-bottom: 3px solid rgb(255, 149, 21);
+}
+
+#oaLeft {
+    width: 100%;
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+}
+
+    #oaLeft p {
+        line-height: 1.5em;
+    }
+
+    #oaLeft img {
+        border-radius: 3em;
+    }
+
+#oaRight {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: .5em;
+    margin-top: .1em;
+    padding: 1em;
+}
+
+    #oaRight p {
+        line-height: 2em;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+#oaRightNotes {
+    font-size: 1.5em;
+    font-family: 'Cabin Condensed', sans-serif;
+}
+
+#oaActiveandDate {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: .5em;
+    border-top: 3px solid rgb(255, 149, 21);
+}
+
+/*********************OwnerAssets Edit View*/
+#oaEditContainer label {
+    font-weight: 700;
+}
+
+input#IsActive.check-box {
+    margin-left: .05em;
+}
+
+
+#oaEditLeft {
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+    padding-right: 2em;
+}
+
+    #oaEditLeft img {
+        border-radius: 1em;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #oaEditLeft input {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+#oaEditNewImage {
+    margin-top: .5em;
+}
+
+#oaEditRight {
+    margin-left: auto;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+/*********************Reservations Index View*/
+#resvIndexContainer {
+    text-align: center;
+    border: 2px solid black;
+    padding: .5em;
+    max-height: 90em;
+    margin: auto;
+    margin-top: .5em;
+    box-shadow: .5em .5em #C26E26;
+    border-radius: 2em;
+    border-collapse: collapse;
+}
+
+/*********************Reservations EditNotes View*/
+#resvEditNotesContainer {
+    width: 50%;
+    text-align: center;
+    border: 2px solid black;
+    padding: .5em;
+    max-height: 90em;
+    margin: auto;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    box-shadow: 1em 1em #C26E26;
+    border-radius: 2em;
+}
+
+#resvEditNotesField {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+    #resvEditNotesField label {
+        width: 100%;
+        float: left;
+    }
+
+/*********************Reservations Edit View*/
+#resvEditContainer {
+    width: 60%;
+    text-align: center;
+    border: 2px solid black;
+    padding: .5em;
+    max-height: 90em;
+    margin: auto;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    box-shadow: 1em 1em #C26E26;
+    border-radius: 2em;
+}
+
+#resvEditContent {
+    width: 95%;
+    margin: 1em;
+    margin-bottom: .5em;
+}
+
+/*********************Reservations Create View*/
+#resvCreateContainer {
+    width: 80%;
+    text-align: center;
+    border: 2px solid black;
+    padding: .5em;
+    max-height: 90em;
+    margin: auto;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    box-shadow: 1em 1em #C26E26;
+    border-radius: 4em;
+}
+
+#resvCreateContent {
+    width: 100%;
+    margin: 1px;
+}
+
+#resvCreateLeft {
+    float: left;
+    width: 39%;
+    margin: 1em;
+    margin-left: 2em;
+    padding: 1em;
+}
+
+    #resvCreateLeft label {
+        text-align: left;
+        display: block;
+        font-weight: 200;
+    }
+
+#resvCreateRight {
+    width: 40%;
+    float: right;
+    margin: 1em;
+    padding: 1em;
+}
+
+    #resvCreateRight label {
+        text-align: left;
+        display: block;
+        font-weight: 200;
+    }
+
+#resvCreateCstmrNotes {
+    float: none;
+    margin-left: 3em;
+    margin-right: 2em;
+}
+
+/*********************Reservations Details View*/
+#resvDetailsContainer {
+    width: 50%;
+    text-align: center;
+    padding: .5em;
+    max-height: 90em;
+    margin: auto;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    border: 2px solid black;
+    box-shadow: 1em 1em #C26E26;
+    border-radius: 4em;
+}
+
+#resvDetailsRight {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.viewLabel {
+    text-align: left;
+    display: inline;
+    font-weight: 700;
+    font-size: 1.1em;
+    font-family: 'Nobile', sans-serif;
+    color: rgb(255, 149, 21);
+}
+
+#petReservationPic {
+    text-align: center;
+    margin: .5em;
+}
+
+#resvPetName {
+    font-family: 'Nobile', sans-serif;
+    color: rgb(255, 149, 21);
+    font-weight: 700;
+}
+
+/*********************UserAdmin Index View*/
+/*container for Roles admin (index, create, & edit), Services Provided (detail), Locations (edit) views, User Detail (index)  */
+.viewsContainer {
+    width: 100%;
+    text-align: center;
+    padding: .5em;
+    max-height: 90em;
+    margin: auto;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    border: 2px solid black;
+    box-shadow: .5em .5em #C26E26;
+    border-radius: 1em;
+}
+
+/*********************UserAdmin Edit View*/
+#userAdminEditCheckbox {
+    text-align: left;
+}
+
+#uaRoles {
+    margin-top: .8em;
+}
+
+#uaSubmit {
+    margin-left: 1em;
+}
+
+#uaFooter {
+    width: 65%;
+}
+
+/*********************UserAdmin Details View*/
+#usersAdminDetailsContainer {
+    width: 75%;
+    text-align: center;
+    padding: .5em;
+    margin: auto;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    border: 2px solid black;
+    box-shadow: .5em .5em #C26E26;
+    border-radius: 1em;
+}
+
+#usersAdminDetailContent {
+    width: 100%;
+}
+
+#uaDetailBody {
+    margin-bottom: .5em;
+    text-align: left;
+}
+
+#uaTitle {
+    text-align: left;
+}
+
+#uaEmailAddress {
+    text-align: left;
+}
+
+#uaDetailsTable {
+    text-align: center;
+}
+
+#uaRolesH4 {
+    text-align: left;
+}
+
+/*********************UserAdmin Create View*/
+
+#uaCheckboxes {
+    display: inline-block;
+}
+
+/*********************UserDetails Create View*/
+#udCreateContainer {
+    width: 50%;
+    text-align: center;
+    border: 2px solid black;
+    padding: .5em;
+    margin: auto;
+    margin-bottom: 1em;
+    box-shadow: 1em 1em #C26E26;
+    margin-top: 1em;
+    border-radius: 3em;
+}
+
+/*********************UserDetails Edit View*/
+#udEditContainer {
+    width: 50%;
+    border: 2px solid black;
+    padding: 1em;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 3em;
+    box-shadow: 2em 1em #C26E26;
+    margin-top: 3em;
+    border-radius: 3em;
+}
+
+#udEditContents {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#udEditFName {
+    margin-bottom: .5em;
+}
+
+    #udEditFName label, #udEditLName label {
+        margin-top: 8px;
+    }
+
+/*********************UserDetails Details View*/
+#udDetailContainer {
+    text-align: center;
+    width: 85%;
+    border: 2px solid black;
+    padding: 1em;
+    margin: auto;
+    margin-bottom: 1em;
+    box-shadow: .5em .5em #C26E26;
+    margin-top: 1em;
+    border-radius: 5em;
+}
+
+#udDetailBody p {
+    font-weight: 100;
+    font-size: 25px;
+}
+
+/*********************RolesAdmin Index View*/
+#rolesAdminIndexContainer {
+    text-align: center;
+    width: 50%;
+    border: 2px solid black;
+    padding: 1em;
+    margin: auto;
+    margin-bottom: 1em;
+    box-shadow: .5em .5em #C26E26;
+    margin-top: 1em;
+    border-radius: 1em;
+}
+
+#rolesAdminIndexContent {
+    width: 100%;
+}
+
+/*********************RolesAdmin Create View*/
+/*roles admin create, details view and user details index view container*/
+.usersContainer {
+    text-align: center;
+    width: 50%;
+    border: 2px solid black;
+    padding: 1em;
+    margin: auto;
+    margin-bottom: 1em;
+    box-shadow: .5em .5em #C26E26;
+    margin-top: 1em;
+    border-radius: 1em;
+}
+
+#rolesAdminCreateContent {
+    width: 100%;
+}
+
+#raCancelBtn {
+    margin-left: 1em;
+}
+
+#raCreateBtn {
+    margin-left: 5em;
+}
+
+/*********************RolesAdmin Edit View*/
+#rolesAdminEditContainer {
+    text-align: center;
+    width: 50%;
+    border: 2px solid black;
+    padding: 1em;
+    margin: auto;
+    margin-bottom: 1em;
+    box-shadow: .5em .5em #C26E26;
+    margin-top: 1em;
+    border-radius: 1em;
+}
+
+#raEditCancelBtn {
+    margin-right: 50em;
+}
+
+#raEditUpdateBtn {
+    margin-right: 15em;
+}
+
+/*********************RolesAdmin Edit View*/
+#raDetailsContainer {
+    text-align: center;
+    width: 50%;
+    border: 2px solid black;
+    padding: 1em;
+    margin: auto;
+    margin-bottom: 1em;
+    box-shadow: .5em .5em #C26E26;
+    margin-top: 1em;
+    border-radius: 1em;
+}
+
+/*********************ServicesProvided Index View*/
+#servicesIndexContainer {
+    text-align: center;
+    width: 50%;
+    border: 2px solid black;
+    padding: 1em;
+    margin: auto;
+    margin-bottom: 1em;
+    box-shadow: 1em 1em #C26E26;
+    margin-top: 1em;
+    border-radius: 1em;
+}
+
+/*********************ServicesProvided Edit View*/
+#spEditContainer {
+    text-align: center;
+    width: 50%;
+    border: 2px solid black;
+    padding: 2em;
+    margin: auto;
+    margin-bottom: 1em;
+    box-shadow: .5em .5em #C26E26;
+    margin-top: 1em;
+    border-radius: 3em;
+}
+
+#spEditContent {
+    width: 100%;
+}
+
+/*********************ServicesProvided Detail View*/
+#spCreateContainer {
+    text-align: center;
+    width: 50%;
+    border: 2px solid black;
+    padding: 1em;
+    margin: auto;
+    margin-bottom: 1em;
+    box-shadow: .5em .5em #C26E26;
+    margin-top: 1em;
+    border-radius: 1em;
+}
+
+
+/*********************Locations Details and Create View*/
+.locationContainer {
+    text-align: center;
+    width: 55%;
+    border: 2px solid black;
+    padding: 1em;
+    margin: auto;
+    margin-bottom: 1em;
+    box-shadow: .5em .5em #C26E26;
+    margin-top: 1em;
+    border-radius: 1em;
+}
+
+/*********************ABOUT PAGE*/
+.headerThree {
+    font-family: 'Play', sans-serif;
+    font-weight: bold;
+    color: dimgrey;
+}
+
+#aboutPageTitle {
+    font-family: 'Slabo 27px', serif;
+    font-weight: 500;
+    color: rgb(255, 149, 21);
+    text-align: center;
+}
+
+#aboutPic {
+    border-radius: 1em;
+}
+
+#aboutP p {
+    font-size: 1.10em;
+}
+
+#aboutSidebar {
+    margin-top: 5em;
+}
+
+#aboutContainer {
+    margin: 1em;
+}
+/*********************FAQ PAGE*/
+#faqContainerLeft {
+    text-align: center;
+    width: 60%;
+    border: 2px solid black;
+    padding: 1em;
+    margin: auto;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    border-radius: 2em;
+}
+
+#accordion .ui-accordion-content {
+    font-family: 'Palanquin Dark', sans-serif;
+    font-weight: 500;
+    width: 100%;
+    background-color: lightcyan;
+    color: black;
+    font-size: 14pt;
+    line-height: 16pt;
+}
+
+#accordion h3 {
+    font-size: 12pt;
+    color: black;
+    font-family: 'Allerta', sans-serif;
+}
+
+.ui-accordion-header {
+    background-color: lightgray;
+    color: black;
+}
+
+    .ui-accordion-header.ui-state-active {
+        background-color: lightblue;
+    }
+
+#faqStmt {
+    font-family: 'Allerta', sans-serif;
+}
+
+/*********************Reservation Max Limit Exceeded Error PAGE*/
+/*classes reused for Error page (in Shared)*/
+#resvSorry {
+    font-size: 3em;
+    color: lightgoldenrodyellow;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.resvErrorPageContainer {
+    text-align: center;
+    width: 100%;
+    padding: 1em;
+    margin: auto;
+    margin-bottom: 1em;
+    margin-top: .5em;
+}
+
+#resvSorryPage {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url('../images/site/resvSorryStare.jpg');
+    background-size: contain;
+}
+
+.resvSorryContent {
+    margin: .5em;
+}
+
+/*********************Error Page (in Shared)*/
+#errorPage {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url('../images/site/wentwrong.jpg');
+    background-size: contain;
+}
+
+#sorryContainer {
+    margin-top: 1px;
+    padding: 0px;
+}
+
+#sorry {
+    text-align: center;
+    font-size: 5em;
+    color: #00C9AA;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-family: 'Play', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+#sorryContact {
+    float: left;
+    margin-top: 20em;
+}
+
+#sorryHome {
+    float: right;
+    margin-top: 20em;
+}
+
+.listSubheader a {
+    margin-top: 1px;
+    font-size: 70px;
+    color: #c4fcf0;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+/*********************Services Page and Locations Page (Home View)*/
+#serviceHeader {
+    color: rgb(255, 149, 21);
+    font-family: 'Nobile', sans-serif;
+}
+
+.servicesData {
+    margin-left: 1em;
+    font-size: 18px;
+    font-family: 'Palanquin Dark', sans-serif;
+}
+
+.servicesName {
+    margin: 1em;
+    color: rgb(255, 149, 21);
+    font-weight: 700;
+    font-family: 'Palanquin Dark', sans-serif;
+}
+
+.svcHeaderContainer {
+    color: black;
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+}
+
+.svcHeader {
+    width: 900px;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    /* ... */
+    align-items: center;
+    color: black;
+}
+
+.svcImage img {
+    width: 350px;
+    height: 100%;
+}
+
+/*services page bullet point*/
+.paw {
+    height: 15px;
+    width: 20px;
+}
+
+/*Locations (home view)*/
+.svcDetail {
+    text-align: center;
+    font-size: 1.5em;
+    font-family: 'Slabo', sans-serif;
+}
+
+.svcContact {
+    font-weight: bold;
+    font-family: 'Cabin Condensed', sans-serif;
+}
+
+#listSubheader {
+    font-family: 'Nobile', sans-serif;
+    font-weight: bolder;
+    color: rgb(255, 149, 21);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+/*********************Footer _Layout*/
+.footer1 {
+    font-size: 15px;
+}
+
+/*********************Jumbotron on index / home page*/
+.top-space {
+    margin-top: 50px;
+}
+
+.jumbotron {
+    padding-top: 3em;
+    padding-bottom: 1em;
+    background-color: #fff;
+}
+
+.item img {
+    margin: auto;
+    display: inline-block;
+}
+
+/*********************Owl Carousel on index / home page*/
+.carousel-control.left {
+    background-image: none;
+}
+
+.carousel-control.right {
+    background-image: none;
+}
+
+#homeReviews {
+    font-family: 'Domine', serif;
+    color: rgb(255, 149, 21);
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    max-width: 60%;
+}
+/*********************header image _layout*/
+#head {
+    margin-top: 4em;
+    min-height: 640px;
+}
+
+/********************* Index / Home*/
+#homeGreeting {
+    margin: auto;
+    margin: auto;
+    margin-top: .5em;
+    text-align: center;
+    color: rgb(255, 149, 21); /*orange #FF9515*/
+    font-weight: bolder;
+    font-size: 3em;
+    font-family: 'Nobile', sans-serif;
+    margin-bottom: .5em;
+    text-align: center;
+    color: rgb(255, 149, 21); /*orange #FF9515*/
+    font-weight: bolder;
+    font-size: 2.5em;
+    font-family: 'Nobile', sans-serif;
+}
+
+#homeSubGreeting {
+    margin: auto;
+    margin-top: .5em;
+    text-align: center;
+    color: rgb(255, 149, 21); /*orange #FF9515*/
+    font-size: 2em;
+    font-family: 'Nobile', sans-serif;
+}
+
+#homeMission {
+    font-family: 'Oxygen', sans-serif;
+    font-size: 18px;
+    margin: .5em;
+}
+
+#home1 {
+    margin-top: 1em;
+    border-radius: 1em;
+}
+
+#home2 {
+    margin-top: 1em;
+    border-radius: 1em;
+}
