@@ -15,12 +15,14 @@ namespace PawsNClaws.Controllers
         private PawsNClawsEntities db = new PawsNClawsEntities();
 
         // GET: ServicesProvideds
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.ServicesProvideds.ToList());
         }
 
         // GET: ServicesProvideds/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +38,7 @@ namespace PawsNClaws.Controllers
         }
 
         // GET: ServicesProvideds/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +49,7 @@ namespace PawsNClaws.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([Bind(Include = "ServicesProvidedID,ServicesProvided1")] ServicesProvided servicesProvided)
         {
             if (ModelState.IsValid)
@@ -59,6 +63,7 @@ namespace PawsNClaws.Controllers
         }
 
         // GET: ServicesProvideds/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +83,7 @@ namespace PawsNClaws.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit([Bind(Include = "ServicesProvidedID,ServicesProvided1")] ServicesProvided servicesProvided)
         {
             if (ModelState.IsValid)
@@ -90,6 +96,7 @@ namespace PawsNClaws.Controllers
         }
 
         // GET: ServicesProvideds/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,6 +112,7 @@ namespace PawsNClaws.Controllers
         }
 
         // POST: ServicesProvideds/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

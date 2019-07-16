@@ -45,6 +45,7 @@
     width: 95%;
     margin: auto;
     min-height: 590px;
+    margin-top:7.5em; /*needed for pages w/o header*/
 }
 
 /*********************Contact Form*/
@@ -893,6 +894,7 @@ input#IsActive.check-box {
 #serviceHeader {
     color: rgb(255, 149, 21);
     font-family: 'Nobile', sans-serif;
+    padding-top:1em;
 }
 
 .servicesData {
@@ -953,6 +955,11 @@ input#IsActive.check-box {
     font-weight: bolder;
     color: rgb(255, 149, 21);
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#locationheader
+{
+    padding-top:1em;
 }
 
 /*********************Footer _Layout*/

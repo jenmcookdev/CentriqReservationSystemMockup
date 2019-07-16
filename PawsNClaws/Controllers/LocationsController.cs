@@ -15,12 +15,14 @@ namespace PawsNClaws.Controllers
         private PawsNClawsEntities db = new PawsNClawsEntities();
 
         // GET: Locations
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Locations.ToList());
         }
 
         // GET: Locations/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,7 +38,7 @@ namespace PawsNClaws.Controllers
         }
 
         // GET: Locations/Create
-        [Authorize(Roles = "Admin , Employee")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -45,7 +47,7 @@ namespace PawsNClaws.Controllers
         // POST: Locations/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "Admin , Employee")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "LocationID,LocationName,Address,City,State,ZipCode,PhoneNumber,Email,ReservationLimit")] Location location)
@@ -61,6 +63,7 @@ namespace PawsNClaws.Controllers
         }
 
         // GET: Locations/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,7 +81,7 @@ namespace PawsNClaws.Controllers
         // POST: Locations/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "Admin , Employee")]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "LocationID,LocationName,Address,City,State,ZipCode,PhoneNumber,Email,ReservationLimit")] Location location)

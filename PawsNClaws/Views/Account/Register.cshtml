@@ -10,6 +10,7 @@
     @Html.AntiForgeryToken()
     <div class="usersContainer">
         <h2 class="listHeader">@ViewBag.Title</h2>
+        <p>(factitious site created for Final Project.)</p>
         <div class="form-horizontal">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group row">

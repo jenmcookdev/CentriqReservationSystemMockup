@@ -30,7 +30,7 @@
                 @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
             </p>
             <p>
-                @Html.TextBoxFor(model => model.Message, null, new { @placeholder = "Message", @class = "form-control", @style = "resize:none", @id = "contactMessage" })
+                @Html.TextBoxFor(model => model.Message, null, new { @placeholder = "Message - please note that this site was created as a final project for Centriq Training.  It is not a real site.", @class = "form-control", @style = "resize:none", @id = "contactMessage" })
                 @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
             </p>
             <div class="clearfix"></div>
